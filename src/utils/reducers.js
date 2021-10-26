@@ -8,7 +8,7 @@ export default function createReducer() {
   const rootReducer = combineReducers({
     movieList: movieListReducer,
     search: searchReducer,
-    movieDetail: movieDetailReducer
+    movieDetail: movieDetailReducer,
   });
 
   return rootReducer;

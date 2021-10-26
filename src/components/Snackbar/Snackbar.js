@@ -42,7 +42,6 @@ export default function CustomizedSnackbars(props) {
     message,
     action,
     className,
-    onClose,
     ...other
   } = props;
 
@@ -75,7 +74,7 @@ export default function CustomizedSnackbars(props) {
             <span id="client-snackbar" className={classes.message}>
               <div className="message-items">{message}</div>
             </span>
-        }
+          }
           action={action}
           {...other}
         />

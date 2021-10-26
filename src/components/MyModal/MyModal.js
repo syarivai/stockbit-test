@@ -10,7 +10,7 @@ const useStyles = makeStyles({
     left: '40%',
     backgroundColor: 'white',
     padding: 24,
-    paddingTop: 12
+    paddingTop: 12,
   },
   header: {
     display: 'flex',

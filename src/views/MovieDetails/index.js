@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Grid, Button } from '@material-ui/core';
@@ -171,7 +170,7 @@ const MovieList = (props) => {
         </Grid>
 
         {/* Plot */}
-        <div className={`${classes.title} mt-3`}>Plot</div>
+        <div className={`${classes.movieTitle} mt-3`}>Plot</div>
         <p>{movieDetail?.Plot}</p>
 
         {/* Back Button */}

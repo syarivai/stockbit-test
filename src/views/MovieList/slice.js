@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export const initialState = {
   movieList: [],
-  totalMovie: 0
+  totalMovie: 0,
 };
 
 export const movieListReducer = createSlice({
