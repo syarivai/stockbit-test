@@ -10,27 +10,27 @@ npm install && npm start
 
 The project use redux-toolkit for data management and material-ui and bootstrap for components and styling
 
-### `Views Folder`
+### Views Folder
 
 Folder for Page list
 
-### `Components Folder`
+### Components Folder
 
 Folder for Component list
 
-### `Layout Folder`
+### Layout Folder
 
 Folder for Layout component (Header)
 
-### `Router Folder`
+### Router Folder
 
 Folder for Router List
 
-### `Utils Folder`
+### Utils Folder
 
 Folder for Axios Config, configureStore, reducers, and others
 
-### `Assets Folder`
+### Assets Folder
 
 Folder for images
 
