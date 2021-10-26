@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Grid, Button, CircularProgress } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
@@ -45,9 +45,6 @@ const MovieList = (props) => {
   const [isLoadMore, setLoadMore] = useState(false);
   const [imgModal, setImgModal] = useState('');
 
-  // Ref
-  const loader = useRef(null);
-
   const dispatch = useDispatch();
   const classes = useStyles();
   const movieList = useSelector((state) => state.movieList.movieList);
@@ -82,47 +79,32 @@ const MovieList = (props) => {
   };
 
   useEffect(() => {
+    dispatch(
+      setMovieList({
+        movieList: [],
+        totalMovie: 0,
+      }),
+    );
     setLoading(true);
-    // setPage(1);
-    // 
+    setPage(1);
     fetchMovieList(1);
   }, [search]);
 
-  // window.onscroll = () => {
-  //   const windowHeight =
-  //     window.innerHeight + document.documentElement.scrollTop;
-  //   const docHeight = document.documentElement.offsetHeight;
+  window.onscroll = () => {
+    const windowHeight =
+      window.innerHeight + document.documentElement.scrollTop;
+    const docHeight = document.documentElement.offsetHeight;
 
-  //   if (windowHeight === docHeight) {
-  //     if (movieList?.length < totalMovie) {
-  //       handleLoadMore();
-  //     }
-  //   }
-  // };
-
-  const handleObserver = useCallback((entries) => {
-    const target = entries[0];
-    if (target?.isIntersecting) handleLoadMore();
-  }, []);
-
-  useEffect(() => {
-    const option = {
-      root: null,
-      rootMargin: '20px',
-      threshold: 0,
-    };
-    const observer = new IntersectionObserver(handleObserver, option);
-    if (loader?.current) observer.observe(loader?.current);
-  }, [handleObserver]);
+    if (windowHeight >= docHeight) handleLoadMore();
+  };
 
   const handleLoadMore = () => {
-    if (movieList?.length < totalMovie) {
+    if (!isLoadMore && movieList?.length < totalMovie) {
       setLoadMore(true);
       setPage(page + 1);
       fetchMovieList(page + 1);
     }
   };
-
 
   const renderSkeletonLoading = () =>
     Array(10)
@@ -182,7 +164,6 @@ const MovieList = (props) => {
       <Grid container spacing={4}>
         {renderMovieList()}
       </Grid>
-      <div ref={loader} />
 
       {/* Load More */}
       {isLoadMore && (
