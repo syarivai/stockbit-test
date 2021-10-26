@@ -1,0 +1,6 @@
+@media only screen and (min-width: 1350px) {
+  .product-card-grid {
+    max-width: 20%;
+    flex-basis: 20%;
+  }
+}
