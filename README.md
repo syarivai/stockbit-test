@@ -2,6 +2,38 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## How to run the apps
+
+npm install && npm start
+
+## About the projects
+
+The project use redux-toolkit for data management and material-ui and bootstrap for components and styling
+
+### `Views Folder`
+
+Folder for Page list
+
+### `Components Folder`
+
+Folder for Component list
+
+### `Layout Folder`
+
+Folder for Layout component (Header)
+
+### `Router Folder`
+
+Folder for Router List
+
+### `Utils Folder`
+
+Folder for Axios Config, configureStore, reducers, and others
+
+### `Assets Folder`
+
+Folder for images
+
 ## Available Scripts
 
 In the project directory, you can run:
