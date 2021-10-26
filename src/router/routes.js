@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from '@material-ui/core';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
 import MyHeader from '../layout/MyHeader/MyHeader';
@@ -10,7 +10,7 @@ const MovieList = React.lazy(() => import('../views/MovieList'));
 const MovieDetails = React.lazy(() => import('../views/MovieDetails'));
 
 const RouterPath = () => (
-  <BrowserRouter history={browserHistory}>
+  <Router history={browserHistory}>
     <MyHeader history={browserHistory} />
     <Container className="mt-4">
       <Switch>
@@ -18,7 +18,7 @@ const RouterPath = () => (
         <Route path="/" exact component={MovieList} />
       </Switch>
     </Container>
-  </BrowserRouter>
+  </Router>
 );
 
 export default RouterPath;

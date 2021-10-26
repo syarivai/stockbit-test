@@ -17,7 +17,6 @@ const useStyles = makeStyles({
   movieImg: {
     objectFit: 'cover',
     marginBottom: 12,
-    cursor: 'pointer',
   },
   movieTitle: {
     fontSize: 13,
@@ -84,7 +83,7 @@ const MovieList = (props) => {
 
   useEffect(() => {
     fetchMovieDetail();
-  }, []);
+  }, [id]);
 
   const renderNotFound = () => (
     <div className={classes.emptyContainer}>
@@ -129,7 +128,7 @@ const MovieList = (props) => {
   const renderMovieInfo = (title, value) => (
     <div>
       <div className={classes.movieTitle}>{title}</div>
-      <div className={classes.movieValue}>{value}</div>
+      <div className={classes.movieValue}>{value || '-'}</div>
     </div>
   );
 
@@ -175,8 +174,8 @@ const MovieList = (props) => {
 
         {/* Back Button */}
         <Button
-          color="primary"
-          className="mt-2 text-white"
+          variant="contained"
+          className="mt-2 mb-5"
           onClick={() => history.goBack()}
         >
           Back
